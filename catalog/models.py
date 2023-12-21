@@ -12,12 +12,16 @@ class Product(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания записи')  # Automatically set the date of
     date_last_modified = models.DateTimeField(auto_now=True, verbose_name='Дата последнего изменения записи')  # Automatically set\
 
+    in_stock = models.BooleanField(default=True, verbose_name='В наличии')
+
     def __str__(self):
         return f'{self.product_name} - {self.product_description}'
 
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+
+
 class Category(models.Model):
     category_name = models.CharField(max_length=50, verbose_name='Наименование категории')
     category_description = models.TextField(max_length=100, verbose_name='Описание категории')
