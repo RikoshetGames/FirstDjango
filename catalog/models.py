@@ -21,7 +21,6 @@ class Product(models.Model):
 class Category(models.Model):
     category_name = models.CharField(max_length=50, verbose_name='Наименование категории')
     category_description = models.TextField(max_length=100, verbose_name='Описание категории')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания записи')
 
     def __str__(self):
         return f'{self.category_name} - {self.category_description}'
