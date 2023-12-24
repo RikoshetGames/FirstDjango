@@ -10,9 +10,23 @@
         <div class="card-body">
             <p class="card-text">
                 {% if object.in_stock %}
+                {{ object.category.category_name | slice:":100" }}
+                {% else %}
+                <span class="text-muted">{{ object.category.category_name | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <p class="card-text">
+                {% if object.in_stock %}
                 {{ object | slice:":100" }}
                 {% else %}
                 <span class="text-muted">{{ object | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <p class="card-text">
+                {% if object.in_stock %}
+                {{ object.product_price | slice:":100" }} рублей.
+                {% else %}
+                <span class="text-muted">{{ object.product_price | slice:":100" }} рублей.</span>
                 {% endif %}
             </p>
             <div class="d-flex justify-content-between align-items-center">
