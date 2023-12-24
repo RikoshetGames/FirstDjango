@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Hello</h1>
-</body>
-</html>
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+{% for object in object_list %}
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top"
+             src="/media/{{ object.product_image }}"
+             alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">
+                {% if object.in_stock %}
+                {{ object | slice:":100" }}
+                {% else %}
+                <span class="text-muted">{{ object | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{%  endblock %}
