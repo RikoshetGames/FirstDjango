@@ -10,29 +10,15 @@
         <div class="card-body">
             <p class="card-text">
                 {% if object.in_stock %}
-                {{ object.category.category_name | slice:":100" }}
+                <b>Название: {{ object.product_name | slice:":100" }}</b>
                 {% else %}
-                <span class="text-muted">{{ object.category.category_name | slice:":100" }}</span>
+                <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
                 {% endif %}
             </p>
-            <p class="card-text">
-                {% if object.in_stock %}
-                {{ object | slice:":100" }}
-                {% else %}
-                <span class="text-muted">{{ object | slice:":100" }}</span>
-                {% endif %}
-            </p>
-            <p class="card-text">
-                {% if object.in_stock %}
-                {{ object.product_price | slice:":100" }} рублей.
-                {% else %}
-                <span class="text-muted">{{ object.product_price | slice:":100" }} рублей.</span>
-                {% endif %}
-            </p>
+
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Посмотреть</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Купить</button>
+                    <a href="{% url 'product' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
                 </div>
                 <small class="text-muted"></small>
             </div>

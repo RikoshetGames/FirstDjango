@@ -1,0 +1,50 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+{% for object in object_list %}
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top"
+             src="{{ object.product_image | product_image }}" width="300" height="225"
+             alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">
+                {% if object.in_stock %}
+                Категория: {{ object.category.category_name | slice:":100" }}
+                {% else %}
+                <span class="text-muted">Категория: {{ object.category.category_name | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <p class="card-text">
+                {% if object.in_stock %}
+                Название: {{ object.product_name | slice:":100" }}
+                {% else %}
+                <span class="text-muted">Название: {{ object.product_name | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <p class="card-text">
+                {% if object.in_stock %}
+                Описание: {{ object.product_description | slice:":100" }}
+                {% else %}
+                <span class="text-muted">Описание: {{ object.product_description | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <p class="card-text">
+                {% if object.in_stock %}
+                Цена: {{ object.product_price | slice:":100" }} рублей.
+                {% else %}
+                <span class="text-muted">Цена:{{ object.product_price | slice:":100" }} рублей.</span>
+                {% endif %}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="/index/" class="btn btn-sm btn-outline-secondary">Назад</a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Купить</button>
+                </div>
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{%  endblock %}

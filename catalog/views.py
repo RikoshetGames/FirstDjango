@@ -21,3 +21,19 @@ def contact(request):
 
 def home(request):
     return render(request, 'catalog/home.html')
+
+
+# def product(request, pk):
+#     products = Product.objects.get(pk=pk)
+#     context = {
+#         'object_list': Product.objects.filter(category_id=pk),
+#         'title': products.product_name
+#     }
+#     return render(request, 'catalog/product.html', context)
+
+def product(request, pk):
+    products = Product.objects.get(pk=pk)
+    context = {
+        'object_list': Product.objects.filter(id=pk),
+    }
+    return render(request, 'catalog/product.html', context)
