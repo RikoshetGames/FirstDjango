@@ -1,13 +1,29 @@
 from django.shortcuts import render
-from catalog.models import Product
+from django.views import View
+from django.views.generic import ListView, DetailView
+
+from catalog.models import Product, Category
 
 # Create your views here.
 def index(request):
-    products = Product.objects.all()
-    context = {
-        'object_list': products
-    }
-    return render(request, 'catalog/index.html', context)
+    return render(request, 'catalog/index.html')
+
+
+class CategoryListView(ListView):
+    model = Category
+
+
+class ProductListView(ListView):
+    model = Product
+
+
+class ProductDetailView(DetailView):
+    def get(self, request, pk):
+        product = Product.objects.get(pk=pk)
+        context = {
+            'object_list': Product.objects.filter(id=pk),
+        }
+        return render(request, 'catalog/product.html', context)
 
 
 def contact(request):
@@ -21,19 +37,3 @@ def contact(request):
 
 def home(request):
     return render(request, 'catalog/home.html')
-
-
-# def product(request, pk):
-#     products = Product.objects.get(pk=pk)
-#     context = {
-#         'object_list': Product.objects.filter(category_id=pk),
-#         'title': products.product_name
-#     }
-#     return render(request, 'catalog/product.html', context)
-
-def product(request, pk):
-    products = Product.objects.get(pk=pk)
-    context = {
-        'object_list': Product.objects.filter(id=pk),
-    }
-    return render(request, 'catalog/product.html', context)

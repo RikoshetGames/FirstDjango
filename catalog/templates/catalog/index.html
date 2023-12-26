@@ -1,29 +1,5 @@
 {% extends 'catalog/base.html' %}
-{% load my_tags %}
-{% block content %}
-{% for object in object_list %}
-<div class="col-md-4">
-    <div class="card mb-4 box-shadow">
-        <img class="card-img-top"
-             src="{{ object.product_image | product_image }}" width="300" height="225"
-             alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">
-                {% if object.in_stock %}
-                <b>Название: {{ object.product_name | slice:":100" }}</b>
-                {% else %}
-                <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
-                {% endif %}
-            </p>
 
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <a href="{% url 'product' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
-                </div>
-                <small class="text-muted"></small>
-            </div>
-        </div>
-    </div>
-</div>
-{% endfor %}
-{%  endblock %}
+{% block content %}
+
+{% endblock %}

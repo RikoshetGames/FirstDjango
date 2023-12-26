@@ -1,0 +1,25 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+{% for object in object_list %}
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <div class="card-body">
+            <p class="card-text">
+                {% if object.in_stock %}
+                Категория: {{ object.category_name | slice:":100" }}
+                {% else %}
+                <span class="text-muted">Категория: {{ object.category_name | slice:":100" }}</span>
+                {% endif %}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="/product_list/" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                </div>
+                <small class="text-muted"></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{%  endblock %}
