@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% load my_tags_blog %}
+{% block content %}
+{% for object in object_list %}
+<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top"
+             src="{{ object.blog_image }}" height="300"
+             alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">
+                {% if object.is_published %}
+                <b>Блог: "{{ object.blog_title|title }}"</b> ({{ object.slug }})
+                {% else %}
+                <span class="text-muted"><b>Блог: "{{ object.blog_title|title }}"</b> ({{ object.slug }})</span>
+                {% endif %}
+            </p>
+            <div class="card_body">
+                <p>
+                    {{ object.blog_description }}
+                </p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{% url 'blog:blog_list' %}" class="btn btn-sm btn-outline-secondary">Вернуться</a>
+                </div>
+                <div class="card_footer">
+                    Просмотры: {{ object.views_count }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

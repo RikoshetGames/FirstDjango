@@ -1,5 +1,5 @@
 {% extends 'catalog/base.html' %}
-{% load my_tags %}
+{% load my_tags_catalog %}
 {% block content %}
 {% for object in object_list %}
 <div class="col-md-4">
@@ -38,7 +38,7 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="/product_list/" class="btn btn-sm btn-outline-secondary">Назад</a>
+                    <a href="/category_list/" class="btn btn-sm btn-outline-secondary">К категориям</a>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Купить</button>
                 </div>
                 <small class="text-muted"></small>
