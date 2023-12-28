@@ -5,10 +5,10 @@
     <a class="btn btn-outline-primary" href="{% url 'blog:create' %}">Добавить блог</a>
 </div>
 {% for object in object_list %}
-<div class="col-md-4">
+<div class="col-md-6">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
-             src="{{ object.blog_image }}" height="300"
+             src="{{ object.blog_image | blog_image }}" height="300"
              alt="Card image cap">
         <div style="height: 170px;" class="card-body">
             <p class="card-text">

@@ -15,7 +15,7 @@ class Blog(models.Model):
     views_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
     slug = models.CharField(max_length=100, verbose_name='slug', **NULLABLE)
 
-    def str(self):
+    def __str__(self):
         return f'{self.blog_title} - {self.blog_description}'
 
     class Meta:
