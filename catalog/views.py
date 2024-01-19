@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from catalog.models import Product, Category
+from catalog.forms import ProductForm
 
 # Create your views here.
 def index(request):
@@ -40,12 +42,20 @@ class ContactView(View):
         return render(request, 'catalog/contacts.html')
 
 
-    def post(self, request):
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        if name is not None and email is not None:
-            return render(request, 'catalog/contacts.html', context={'name': name, 'email': email})
-        return redirect('contacts')
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy("catalog:product_list")
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy("catalog:product_list")
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy("catalog:product_list")
 
 
 def home(request):

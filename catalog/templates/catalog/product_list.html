@@ -1,6 +1,9 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags_catalog %}
 {% block content %}
+<div class="col-12 mb-5">
+    <a class="btn btn-outline-primary" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
+</div>
 {% for object in object_list %}
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
@@ -18,8 +21,11 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="/category_list/" class="btn btn-sm btn-outline-secondary">К категориям</a>
-                    <a href="{% url 'product' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                    <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                    <span style="margin-left: 10px;"></span>
+                    <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                    <span style="margin-left: 10px;"></span>
+                    <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
                 </div>
                 <small class="text-muted"></small>
             </div>
@@ -27,4 +33,4 @@
     </div>
 </div>
 {% endfor %}
-{%  endblock %}
+{% endblock %}
