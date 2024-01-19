@@ -3,7 +3,7 @@ from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-from catalog.models import Product, Category
+from catalog.models import Product, Category, Version
 from catalog.forms import ProductForm
 
 # Create your views here.
@@ -17,6 +17,12 @@ class CategoryListView(ListView):
 
 class ProductListView(ListView):
     model = Product
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        active_versions = Version.objects.filter(is_active=True)
+        context['active_versions'] = active_versions
+        return context
 
 
 class ProductCategoryListView(ListView):

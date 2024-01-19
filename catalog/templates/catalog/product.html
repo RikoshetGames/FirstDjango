@@ -36,12 +36,18 @@
                 <span class="text-muted">Цена:{{ object.product_price | slice:":100" }} рублей.</span>
                 {% endif %}
             </p>
+            <p>Версии:</p>
+            <ul>
+                {% for version in object.version %}
+                <li>{{ version.version_number }}</li>
+                {% endfor %}
+            </ul>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <form>
-                        <input type="button" class="btn btn-sm btn-outline-secondary" value="Назад" onclick="history.back()">
+                        <input type="button" class="btn btn-sm btn-info" value="Назад" onclick="history.back()">
+                        <button type="button" class="btn btn-sm btn-success">Купить</button>
                     </form>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Купить</button>
                 </div>
                 <small class="text-muted"></small>
             </div>

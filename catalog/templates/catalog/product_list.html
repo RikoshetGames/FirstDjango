@@ -2,7 +2,7 @@
 {% load my_tags_catalog %}
 {% block content %}
 <div class="col-12 mb-5">
-    <a class="btn btn-outline-primary" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
+    <a class="btn btn-info" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
 </div>
 {% for object in object_list %}
 <div class="col-md-4">
@@ -18,12 +18,19 @@
                 <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
                 {% endif %}
             </p>
-
+            <h6>Версии:</h6>
+            <ul>
+                {% for version in product.version_set.all %}
+                <li>{{ version.version_number }}</li>
+                {% endfor %}
+            </ul>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
-                    <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                    <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+                    <form>
+                    <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-info">Посмотреть</a>
+                    <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-info">Изменить</a>
+                    <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                    </form>
                 </div>
                 <small class="text-muted"></small>
             </div>
