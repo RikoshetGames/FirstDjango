@@ -78,7 +78,15 @@ class CreateVersionView(View):
     def post(self, request):
         form = VersionForm(request.POST)
         if form.is_valid():
-            form.save()
+            version = form.save(commit=False)
+            product_id = version.product_id
+
+
+            Version.objects.filter(product_id=product_id).update(is_active=False)
+
+            version.is_active = True
+            version.save()
+
             return redirect('catalog:product_list')
         return render(request, 'catalog/create_version.html', {'form': form})
 
