@@ -64,21 +64,24 @@ class ProductUpdateView(UpdateView):
     form_class = ProductForm
     success_url = reverse_lazy("catalog:product_list")
 
+
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy("catalog:product_list")
 
 
-def home(request):
-    return render(request, 'catalog/home.html')
+class CreateVersionView(View):
+    def get(self, request):
+        form = VersionForm()
+        return render(request, 'catalog/create_version.html', {'form': form})
 
-
-def create_version(request):
-    if request.method == 'POST':
+    def post(self, request):
         form = VersionForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('catalog:product_list')
-    else:
-        form = VersionForm()
-    return render(request, 'catalog/create_version.html', {'form': form})
+        return render(request, 'catalog/create_version.html', {'form': form})
+
+
+def home(request):
+    return render(request, 'catalog/home.html')
