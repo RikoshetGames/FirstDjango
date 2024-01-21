@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class ProductForm(forms.ModelForm):
@@ -27,3 +27,9 @@ class ProductForm(forms.ModelForm):
             if word in description:
                 raise ValidationError("Нельзя добавлять запрещенные слова в описание продукта.")
         return description
+
+
+class VersionForm(forms.ModelForm):
+    class Meta:
+        model = Version
+        fields = ("product", "version_number", "version_name", "is_active")

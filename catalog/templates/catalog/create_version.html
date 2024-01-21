@@ -1,0 +1,20 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags_catalog %}
+{% block content %}
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-sm btn-success">Add Version</button>
+                <input type="button" class="btn btn-sm btn-info" value="Назад" onclick="history.back()">
+            </form>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+</div>
+{% endblock %}

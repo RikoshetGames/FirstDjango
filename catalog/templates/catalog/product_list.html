@@ -3,6 +3,7 @@
 {% block content %}
 <div class="col-12 mb-5">
     <a class="btn btn-info" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
+    <a class="btn btn-info" href="{% url 'catalog:create_version' %}">Добавить версию</a>
 </div>
 {% for object in object_list %}
 <div class="col-md-4">
@@ -18,11 +19,14 @@
                 <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
                 {% endif %}
             </p>
-            <h6>Версии:</h6>
             <ul>
-                {% for version in product.version_set.all %}
-                <li>{{ version.version_number }}</li>
-                {% endfor %}
+                {% for version in object.version_set.all %}
+            {% if version.is_active %}
+            <h6>Активная версия: {{ version.version_name }}</h6>
+            {% else %}
+            <h6>Неактивная версия</h6>
+            {% endif %}
+            {% endfor %}
             </ul>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
