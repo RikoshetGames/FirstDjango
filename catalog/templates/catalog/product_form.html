@@ -1,27 +1,55 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
-<div class="col-6">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                {% if object.pk %}
-                <h2>Редактирование продукта</h2>
-                {% else %}
-                <h2>Добавление продукта</h2>
-                {% endif %}
-            </h3>
-        </div>
-        <div class="card-body">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-success">Сохранить</button>
-                <input type="button" class="btn btn-info" value="Назад" onclick="history.back()">
-            </form>
-        </div>
-        <div class="card-footer">
-        </div>
+<div class="row">
+    <div class="col-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <div class="card-title">
+                        {% if object.pk %}
+                        <h2>Редактирование продукта</h2>
+                        {% else %}
+                        <h2>Добавление продукта</h2>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="btn-group">
+                        <button type="submit" name="save" class="btn btn-success">Сохранить</button>
+                        <span style="margin-left: 10px;"></span>
+                        <input type="button" class="btn btn-outline-secondary" value="Назад" onclick="history.back()">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <div class="card-title">
+                            {% if object.pk %}
+                            <h2>Редактирование версии</h2>
+                            {% else %}
+                            <h2>Добавление версии</h2>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {{ formset.management_form}}
+                        {% for form in formset.forms %}
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {% endfor %}
+                        <form>
+                            <button type="submit" name="save" class="btn btn-outline-primary">Сохранить</button>
+                            <span style="margin-left: 10px;"></span>
+                            <input type="button" class="btn btn-outline-secondary" value="Назад" onclick="history.back()">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
-{%  endblock %}
+{% endblock %}

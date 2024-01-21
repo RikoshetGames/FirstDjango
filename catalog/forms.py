@@ -10,6 +10,11 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ("product_name", "product_description", "product_image", "category", "product_price", "in_stock")
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
     def clean_product_name(self):
         name = self.cleaned_data['product_name']
         forbidden_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция',
@@ -30,6 +35,13 @@ class ProductForm(forms.ModelForm):
 
 
 class VersionForm(forms.ModelForm):
+
     class Meta:
         model = Version
-        fields = ("product", "version_number", "version_name", "is_active")
+        # fields = '__all__'
+        fields = ('product', 'version_number', 'version_name', 'is_active', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
