@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.urls import reverse_lazy
 
 from catalog.models import Product, Category, Version
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, CategoryForm
 
 
 # Create your views here.
@@ -133,6 +133,16 @@ class CreateVersionView(View):
 
             return redirect('catalog:product_list')
         return render(request, 'catalog/create_version.html', {'form': form})
+
+
+class CategoryCreateView(CreateView):
+    model = Category
+    form_class = CategoryForm
+    success_url = reverse_lazy("catalog:category_list")
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.object = None
 
 
 def home(request):

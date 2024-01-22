@@ -1,6 +1,9 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags_catalog %}
 {% block content %}
+<div class="col-12 mb-5">
+    <a class="btn btn-info" href="{% url 'catalog:create_category' %}">Добавить категорию</a>
+</div>
 {% for object in object_list %}
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">

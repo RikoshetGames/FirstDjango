@@ -1,0 +1,466 @@
+[
+{
+"model": "catalog.product",
+"pk": 3,
+"fields": {
+"product_name": "Мандарины",
+"product_description": "Оранжевый",
+"product_image": "product_images/изображение_2023-12-24_234717586.png",
+"category": 22,
+"product_price": "13.00",
+"date_created": "2023-12-22T19:41:29.111Z",
+"date_last_modified": "2024-01-21T17:48:55.755Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 4,
+"fields": {
+"product_name": "Яблоки",
+"product_description": "Зеленые и красные",
+"product_image": "product_images/изображение_2023-12-24_234745065.png",
+"category": 22,
+"product_price": "34.00",
+"date_created": "2023-12-22T19:41:53.243Z",
+"date_last_modified": "2024-01-21T15:34:35.555Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 5,
+"fields": {
+"product_name": "Лимоны",
+"product_description": "Желтые",
+"product_image": "product_images/изображение_2023-12-24_234915060.png",
+"category": 22,
+"product_price": "34.00",
+"date_created": "2023-12-22T19:43:20.933Z",
+"date_last_modified": "2023-12-24T20:49:18.680Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 6,
+"fields": {
+"product_name": "Огурцы",
+"product_description": "Зеленые",
+"product_image": "product_images/изображение_2023-12-24_235052167.png",
+"category": 21,
+"product_price": "23.00",
+"date_created": "2023-12-22T19:45:01.392Z",
+"date_last_modified": "2023-12-24T20:50:54.096Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 7,
+"fields": {
+"product_name": "Помидоры",
+"product_description": "Красные",
+"product_image": "product_images/изображение_2023-12-24_235152859.png",
+"category": 21,
+"product_price": "43.00",
+"date_created": "2023-12-22T19:45:42.446Z",
+"date_last_modified": "2024-01-21T17:44:10.097Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 8,
+"fields": {
+"product_name": "Добрый",
+"product_description": "Оч добрый",
+"product_image": "product_images/изображение_2023-12-24_235225083.png",
+"category": 23,
+"product_price": "23.00",
+"date_created": "2023-12-22T19:46:10.001Z",
+"date_last_modified": "2023-12-24T20:52:26.268Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 9,
+"fields": {
+"product_name": "Любимый",
+"product_description": "Оч любимый",
+"product_image": "product_images/изображение_2023-12-25_000003356.png",
+"category": 23,
+"product_price": "75.00",
+"date_created": "2023-12-22T19:46:36.028Z",
+"date_last_modified": "2024-01-21T18:08:29.904Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 10,
+"fields": {
+"product_name": "Жокей",
+"product_description": "Растворимый кофе",
+"product_image": "product_images/изображение_2023-12-25_000111657.png",
+"category": 24,
+"product_price": "56.00",
+"date_created": "2023-12-22T19:48:14.374Z",
+"date_last_modified": "2024-01-21T17:42:11.584Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 11,
+"fields": {
+"product_name": "Жардин",
+"product_description": "Растворимый",
+"product_image": "product_images/изображение_2023-12-25_000229853.png",
+"category": 24,
+"product_price": "35.00",
+"date_created": "2023-12-22T19:48:43.468Z",
+"date_last_modified": "2023-12-24T21:02:30.928Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 12,
+"fields": {
+"product_name": "Свинина",
+"product_description": "Вчера бегала",
+"product_image": "product_images/изображение_2023-12-25_000250140.png",
+"category": 25,
+"product_price": "432.00",
+"date_created": "2023-12-22T19:53:30.184Z",
+"date_last_modified": "2023-12-24T21:02:51.807Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 13,
+"fields": {
+"product_name": "Говядина",
+"product_description": "Позавчера бегала",
+"product_image": "product_images/изображение_2023-12-25_000312238.png",
+"category": 25,
+"product_price": "543.00",
+"date_created": "2023-12-22T19:53:47.954Z",
+"date_last_modified": "2024-01-21T15:35:24.289Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 14,
+"fields": {
+"product_name": "Форрель",
+"product_description": "Вчера плавала",
+"product_image": "product_images/изображение_2023-12-25_000335085.png",
+"category": 26,
+"product_price": "432.00",
+"date_created": "2023-12-22T19:54:15.404Z",
+"date_last_modified": "2023-12-24T21:03:39.913Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 15,
+"fields": {
+"product_name": "Палтус",
+"product_description": "Он сам всплыл",
+"product_image": "product_images/изображение_2023-12-25_000424187.png",
+"category": 26,
+"product_price": "234.00",
+"date_created": "2023-12-22T19:54:47.486Z",
+"date_last_modified": "2023-12-24T21:04:25.900Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.product",
+"pk": 18,
+"fields": {
+"product_name": "Картошка",
+"product_description": "От бытьки",
+"product_image": "product_images/interesnyie-faktyi-o-kartofele.jpg",
+"category": 21,
+"product_price": "43.00",
+"date_created": "2024-01-18T21:22:25.319Z",
+"date_last_modified": "2024-01-18T21:22:25.319Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 26,
+"fields": {
+"product_name": "Черный чай",
+"product_description": "Очень черный",
+"product_image": "product_images/изображение_2024-01-20_153547957.png",
+"category": 27,
+"product_price": "312.00",
+"date_created": "2024-01-20T12:35:57.296Z",
+"date_last_modified": "2024-01-21T18:44:51.491Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 27,
+"fields": {
+"product_name": "Чай зеленый",
+"product_description": "Как мы в пайтоне",
+"product_image": "product_images/изображение_2024-01-20_153636660.png",
+"category": 27,
+"product_price": "231.00",
+"date_created": "2024-01-20T12:36:43.642Z",
+"date_last_modified": "2024-01-21T18:10:14.784Z",
+"in_stock": true
+}
+},
+{
+"model": "catalog.product",
+"pk": 28,
+"fields": {
+"product_name": "Чай красный",
+"product_description": "Как борщ",
+"product_image": "product_images/изображение_2024-01-20_153741919.png",
+"category": 27,
+"product_price": "432.00",
+"date_created": "2024-01-20T12:37:47.848Z",
+"date_last_modified": "2024-01-21T18:39:33.836Z",
+"in_stock": false
+}
+},
+{
+"model": "catalog.category",
+"pk": 21,
+"fields": {
+"category_name": "Овощи",
+"category_description": "Их можно есть"
+}
+},
+{
+"model": "catalog.category",
+"pk": 22,
+"fields": {
+"category_name": "Фрукты",
+"category_description": "Их тоже можно есть"
+}
+},
+{
+"model": "catalog.category",
+"pk": 23,
+"fields": {
+"category_name": "Соки",
+"category_description": "Их пьют"
+}
+},
+{
+"model": "catalog.category",
+"pk": 24,
+"fields": {
+"category_name": "Кофе",
+"category_description": "Он заваривается"
+}
+},
+{
+"model": "catalog.category",
+"pk": 25,
+"fields": {
+"category_name": "Мясо",
+"category_description": "Только свежее"
+}
+},
+{
+"model": "catalog.category",
+"pk": 26,
+"fields": {
+"category_name": "Рыба",
+"category_description": "Когда то плавала"
+}
+},
+{
+"model": "catalog.category",
+"pk": 27,
+"fields": {
+"category_name": "Чай",
+"category_description": "Афганский"
+}
+},
+{
+"model": "catalog.version",
+"pk": 3,
+"fields": {
+"product": 3,
+"version_number": 1,
+"version_name": "Мандарин-v1.0",
+"is_active": false
+}
+},
+{
+"model": "catalog.version",
+"pk": 4,
+"fields": {
+"product": 4,
+"version_number": 3,
+"version_name": "Яблоко v3.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 7,
+"fields": {
+"product": 8,
+"version_number": 3,
+"version_name": "Добрый 3.1",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 8,
+"fields": {
+"product": 11,
+"version_number": 45,
+"version_name": "4.5",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 9,
+"fields": {
+"product": 5,
+"version_number": 2,
+"version_name": "Лимоны-v2.0",
+"is_active": false
+}
+},
+{
+"model": "catalog.version",
+"pk": 10,
+"fields": {
+"product": 14,
+"version_number": 1,
+"version_name": "Форрель V.1",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 11,
+"fields": {
+"product": 5,
+"version_number": 3,
+"version_name": "Лимоны-v3.0",
+"is_active": false
+}
+},
+{
+"model": "catalog.version",
+"pk": 12,
+"fields": {
+"product": 5,
+"version_number": 4,
+"version_name": "Лимоны-v4.0",
+"is_active": false
+}
+},
+{
+"model": "catalog.version",
+"pk": 13,
+"fields": {
+"product": 6,
+"version_number": 1,
+"version_name": "Огурцы-1.0",
+"is_active": false
+}
+},
+{
+"model": "catalog.version",
+"pk": 14,
+"fields": {
+"product": 6,
+"version_number": 2,
+"version_name": "Огурцы-2.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 15,
+"fields": {
+"product": 10,
+"version_number": 4,
+"version_name": "Жокей-4.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 16,
+"fields": {
+"product": 7,
+"version_number": 3,
+"version_name": "Помидор-3.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 17,
+"fields": {
+"product": 5,
+"version_number": 5,
+"version_name": "Лимоны-v5.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 18,
+"fields": {
+"product": 9,
+"version_number": 2,
+"version_name": "Любимый-2.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 19,
+"fields": {
+"product": 27,
+"version_number": 2,
+"version_name": "Чай зеленый 2.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 20,
+"fields": {
+"product": 28,
+"version_number": 2,
+"version_name": "Чай красный - 2.0",
+"is_active": true
+}
+},
+{
+"model": "catalog.version",
+"pk": 21,
+"fields": {
+"product": 26,
+"version_number": 2,
+"version_name": "Чай черный 2.0",
+"is_active": true
+}
+}
+]
