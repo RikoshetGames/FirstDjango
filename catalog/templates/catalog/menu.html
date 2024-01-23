@@ -9,9 +9,11 @@
             <a class="p-2 btn btn-info" href="/index/">Индекс</a>
             <a class="p-2 btn btn-danger" href="/admin/">Админка (для администрирования)</a>
             {% if user.is_authenticated %}
+            <a class="p-2 btn btn-info" href="/users/profile/">Профиль</a>
             <a class="p-2 btn btn-info" href="/users/logout/">Выход</a>
             {% else %}
             <a class="p-2 btn btn-info" href="/users/">Вход</a>
+            <a class="p-2 btn btn-info" href="/users/register/">Регистрация</a>
             {% endif %}
         </nav>
     </div>

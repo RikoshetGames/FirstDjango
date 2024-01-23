@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="col-12">
+    <form class="row" method="post" enctype="multipart/form-data">
+        <div class="col-6">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h4>Регистрация</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="btn-group">
+                        <button type="submit" name="save" class="btn btn-success">Регистрация</button>
+                        <span style="margin-left: 10px;"></span>
+                        <input type="button" class="btn btn-outline-secondary" value="Назад"
+                               onclick="history.back()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
