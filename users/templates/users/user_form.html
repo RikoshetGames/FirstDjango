@@ -12,6 +12,11 @@
                 </div>
                 <div class="card-body">
                     {% csrf_token %}
+                    {% if invalid_token %}
+                        <div class="alert alert-danger">
+                            <p>Извините, ваш токен недействителен. <a href="{% url 'users:invalid_token' %}">Попробуйте снова</a>.</p>
+                        </div>
+                    {% endif %}
                     {{ form.as_p }}
                     <form>
                         <button type="submit" name="save" class="btn btn-success">Сохранить</button>
