@@ -36,6 +36,9 @@
                 <span class="text-muted">Цена:{{ object.product_price | slice:":100" }} рублей.</span>
                 {% endif %}
             </p>
+            <div class="card-text">
+                {{ object.owner|default:"без продавца" }}
+            </div>
             <p>Версии:</p>
             <ul>
                 {% for version in object.version %}

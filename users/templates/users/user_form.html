@@ -21,6 +21,8 @@
                     <form>
                         <button type="submit" name="save" class="btn btn-success">Сохранить</button>
                         <span style="margin-left: 10px;"></span>
+                        <a href="{% url 'users:generate_new_password' %}" class="btn btn-danger">Сгенерировать новый пароль</a>
+                        <span style="margin-left: 10px;"></span>
                         <input type="button" class="btn btn-info" value="Назад"
                                onclick="history.back()">
                     </form>

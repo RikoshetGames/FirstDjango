@@ -19,6 +19,9 @@
                 <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
                 {% endif %}
             </p>
+            <div class="card-text">
+                {{ object.owner|default:"без продавца" }}
+            </div>
             <ul>
                 {% for version in object.version_set.all %}
             {% if version.is_active %}
@@ -32,8 +35,10 @@
                 <div class="btn-group">
                     <form>
                     <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-info">Посмотреть</a>
+                    {% if object.owner == request.user %}
                     <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-info">Изменить</a>
                     <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                    {% endif %}
                     </form>
                 </div>
                 <small class="text-muted"></small>

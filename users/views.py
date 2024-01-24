@@ -88,3 +88,16 @@ def confirm_registration(request, token):
 
 def invalid_token_view(request):
     return render(request, 'users/invalid_token.html')
+
+
+def generate_new_password(request):
+    new_password = User.objects.make_random_password()
+    send_mail(
+        subject='Вы сменили пароль',
+        message=f'Ваш новый пароль: {new_password}',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[request.user.email],
+    )
+    request.user.set_password(new_password)
+    request.user.save()
+    return redirect(reverse('catalog:home'))
