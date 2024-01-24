@@ -101,3 +101,24 @@ def generate_new_password(request):
     request.user.set_password(new_password)
     request.user.save()
     return redirect(reverse('catalog:home'))
+
+
+def reset_password(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+            new_password = User.objects.make_random_password()
+            user.set_password(new_password)
+            user.save()
+            send_mail(
+                subject='Восстановление пароля',
+                message=f'Для входа используйте новый пароль: {new_password}',
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email],
+            )
+            return render(request, 'users/password_recovery_success.html')
+        except User.DoesNotExist:
+            return render(request, 'users/password_recovery_failure.html')
+    else:
+        return render(request, 'users/reset_password.html')

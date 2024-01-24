@@ -22,9 +22,9 @@
                     {{ form.as_p }}
                     <form>
                         <button type="submit" name="save" class="btn btn-success">Войти</button>
-                        <span style="margin-left: 10px;"></span>
                         <input type="button" class="btn btn-info" value="Назад" onclick="history.back()">
                     </form>
+                    <a class="nav-link px-2 link-body-emphasis text-decoration-none" href="{% url 'users:reset_password' %}">Забыли пароль?</a>
                 </div>
             </div>
         </div>
