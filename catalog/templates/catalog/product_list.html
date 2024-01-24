@@ -35,7 +35,7 @@
                 <div class="btn-group">
                     <form>
                     <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-info">Посмотреть</a>
-                    {% if object.owner == request.user %}
+                    {% if object.owner == request.user or request.user.is_superuser %}
                     <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-info">Изменить</a>
                     <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-danger">Удалить</a>
                     {% endif %}
