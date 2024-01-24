@@ -12,6 +12,13 @@
                 </div>
                 <div class="card-body">
                     {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     {{ form.as_p }}
                     <form>
                         <button type="submit" name="save" class="btn btn-success">Войти</button>
