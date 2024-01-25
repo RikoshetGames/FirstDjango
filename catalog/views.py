@@ -107,6 +107,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
             context_data['formset'] = VersionFormset(instance=self.object)
         return context_data
 
+
     def form_valid(self, form):
         context = self.get_context_data()
         formset = context['formset']
