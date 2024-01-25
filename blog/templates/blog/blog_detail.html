@@ -26,8 +26,12 @@
                 <div class="btn-group">
                     <form>
                     <a href="{% url 'blog:blog_list' %}" class="btn btn-sm btn-primary">Вернуться</a>
+                        {% if perms.blog.change_blog %}
                     <a href="{% url 'blog:edit' object.pk %}" class="btn btn-sm btn-primary">Редактировать</a>
+                        {% endif %}
+                        {% if perms.blog.delete_blog %}
                     <a href="{% url 'blog:delete' object.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                        {% endif %}
                 </form>
                 </div>
                 <div class="card_footer">

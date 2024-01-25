@@ -2,7 +2,9 @@
 {% load my_tags_blog %}
 {% block content %}
 <div class="col-12 mb-5">
+    {% if perms.blog.add_blog %}
     <a class="btn btn-primary" href="{% url 'blog:create' %}">Добавить блог</a>
+    {% endif %}
 </div>
 {% for object in object_list %}
 <div class="col-md-6">
@@ -23,10 +25,14 @@
                     <form>
                     <a href="{% url 'blog:view' object.pk %}"
                        class="btn btn-sm btn-primary">Подробнее</a>
+                    {% if perms.blog.change_blog %}
                     <a href="{% url 'blog:edit' object.pk %}"
                        class="btn btn-sm btn-primary">Редактировать</a>
+                    {% endif %}
+                    {% if perms.blog.delete_blog %}
                     <a href="{% url 'blog:delete' object.pk %}"
                        class="btn btn-sm btn-danger">Удалить</a>
+                    {% endif %}
                     </form>
                 </div>
             </div>
