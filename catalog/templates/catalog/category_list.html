@@ -2,7 +2,9 @@
 {% load my_tags_catalog %}
 {% block content %}
 <div class="col-12 mb-5">
+    {% if perms.catalog.add_category %}
     <a class="btn btn-info" href="{% url 'catalog:create_category' %}">Добавить категорию</a>
+    {% endif %}
 </div>
 {% for object in object_list %}
 <div class="col-md-4">
