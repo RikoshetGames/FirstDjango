@@ -2,10 +2,13 @@
 {% load my_tags_catalog %}
 {% block content %}
 <div class="col-12 mb-5">
+    {% if perms.catalog.add_product %}
     <a class="btn btn-info" href="{% url 'catalog:create_product' %}">Добавить продукт</a>
     <a class="btn btn-info" href="{% url 'catalog:create_version' %}">Добавить версию</a>
+    {% endif %}
 </div>
 {% for object in object_list %}
+{% if object.is_published or user.is_staff or user.is_superuser %}
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
         <img class="card-img-top"
@@ -13,11 +16,13 @@
              alt="Card image cap">
         <div class="card-body">
             <p class="card-text">
+
                 {% if object.in_stock %}
                 <b>Название: {{ object.product_name | slice:":100" }}</b>
                 {% else %}
                 <span class="text-muted"><b>Название: {{ object.product_name | slice:":100" }}</b></span>
                 {% endif %}
+
             </p>
             <div class="card-text">
                 {{ object.owner|default:"без продавца" }}
@@ -35,8 +40,10 @@
                 <div class="btn-group">
                     <form>
                     <a href="{% url 'catalog:product' object.pk %}" class="btn btn-sm btn-info">Посмотреть</a>
-                    {% if object.owner == request.user or request.user.is_superuser %}
+                    {% if perms.catalog.change_product or object.owner == request.user %}
                     <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-sm btn-info">Изменить</a>
+                    {% endif %}
+                    {% if user.is_superuser or object.owner == request.user %}
                     <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-sm btn-danger">Удалить</a>
                     {% endif %}
                     </form>
@@ -46,5 +53,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endfor %}
 {% endblock %}
