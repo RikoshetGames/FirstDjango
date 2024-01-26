@@ -2,13 +2,17 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto font-weight-normal">Rikoshet store</h5>
         <nav class="ms-5">
+            {% if user.is_superuser %}
+            <a class="p-2 btn btn-danger" href="/admin/">Админка</a>
+            {% elif user.is_staff %}
+            <a class="p-2 btn btn-danger" href="/admin/">Модерка</a>
+            {% endif %}
+            {% if user.is_authenticated %}
             <a class="p-2 btn btn-info" href="/category_list/">Категории</a>
             <a class="p-2 btn btn-info" href="/product_list/">Продукты</a>
-            <a class="p-2 btn btn-info" href="/contacts/">Контакты</a>
             <a class="p-2 btn btn-info" href="/">Главная</a>
             <a class="p-2 btn btn-info" href="/index/">Индекс</a>
-            <a class="p-2 btn btn-danger" href="/admin/">Админка (для администрирования)</a>
-            {% if user.is_authenticated %}
+            <a class="p-2 btn btn-info" href="/contacts/">Контакты</a>
             <a class="p-2 btn btn-info" href="/users/profile/">Профиль {{ user }}</a>
             <a class="p-2 btn btn-info" href="/users/logout/">Выход</a>
             {% else %}
