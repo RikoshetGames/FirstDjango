@@ -12,6 +12,7 @@ from django.contrib import messages
 
 from users.forms import UserRegisterForm, UserProfileForm
 from users.models import User
+from users.services import send_new_password
 
 
 def logout_view(request):
@@ -94,14 +95,9 @@ def invalid_token_view(request):
 
 def generate_new_password(request):
     new_password = User.objects.make_random_password()
-    send_mail(
-        subject='Вы сменили пароль',
-        message=f'Ваш новый пароль: {new_password}',
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[request.user.email],
-    )
     request.user.set_password(new_password)
     request.user.save()
+    send_new_password(request.user.email, new_password)
     return redirect(reverse('catalog:home'))
 
 

@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 
 from catalog.models import Product, Category, Version
 from catalog.forms import ProductForm, VersionForm, CategoryForm
+from catalog.services import get_categories_cache
 
 
 # Create your views here.
@@ -18,6 +19,11 @@ def index(request):
 
 class CategoryListView(LoginRequiredMixin, ListView):
     model = Category
+
+    def fet_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['category_list'] = get_categories_cache()
+        return context_data
 
 
 class ProductListView(LoginRequiredMixin, ListView):
