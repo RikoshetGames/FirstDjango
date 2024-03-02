@@ -8,7 +8,7 @@
             <a class="p-2 btn btn-danger" href="/admin/">Модерка</a>
             {% endif %}
             {% if user.is_authenticated %}
-            <a class="p-2 btn btn-primary" href="{% url 'blog:blog_list' %}">Блоги</a>
+            <a class="p-2 btn btn-primary" href="{% url 'sheduler:home' %}">Блоги</a>
             <a class="p-2 btn btn-primary" href="{% url 'blog:contacts' %}">Контакты</a>
             <a class="p-2 btn btn-primary" href="/users/profile/">Профиль {{ user }}</a>
             <a class="p-2 btn btn-primary" href="/users/logout/">Выход</a>
